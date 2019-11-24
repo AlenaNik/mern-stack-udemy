@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Goallist from './components/goallist.component'
+import AddGoal from "./components/addgoal.component";
 
 function App() {
+    const [Daygoals, setDaygoals] = useState([
+        {id: '1', text: 'Wake up'},
+        {id: '2', text: 'Breakfast'},
+        {id: '3', text: 'Go to sleep'},
+    ]);
+
+const addGoalHandler = (newOne) => {
+       setDaygoals((prevDayGoals) => prevDayGoals.concat(newOne)
+       )
+};
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Hey there</h1>
+        <AddGoal onAddGoal={addGoalHandler}/>
+      <Goallist goals={Daygoals}/>
+    </>
   );
 }
 
