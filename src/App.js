@@ -1,28 +1,20 @@
-import React, { useState } from 'react';
-import './App.css';
-import Goallist from './components/goallist.component'
-import AddGoal from "./components/addgoal.component";
+import React from 'react';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import Users from './pages/Users.page';
+import NewPlace from "./pages/NewPlace.page";
 
-function App() {
-    const [Daygoals, setDaygoals] = useState([
-        {id: '1', text: 'Wake up'},
-        {id: '2', text: 'Breakfast'},
-        {id: '3', text: 'Go to sleep'},
-    ]);
-
-const addGoalHandler = (newOne) => {
-       setDaygoals((prevDayGoals) => prevDayGoals.concat(newOne)
-       )
+const App = () => {
+    return <Router>
+            <Switch>
+                    <Route exact path="/places/add-new">
+                        <NewPlace />
+                    </Route>
+                    <Route exact path="/">
+                        <Users />
+                    </Route>
+                <Redirect to="/" />
+            </Switch>
+           </Router>
 };
-
-
-  return (
-    <>
-      <h1>Hey there</h1>
-        <AddGoal onAddGoal={addGoalHandler}/>
-      <Goallist goals={Daygoals}/>
-    </>
-  );
-}
 
 export default App;
