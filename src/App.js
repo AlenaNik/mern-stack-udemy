@@ -5,20 +5,22 @@ import NewPlace from "./pages/NewPlace.page";
 import MainNavitation from "./components/Navigation/MainNavigation";
 
 const App = () => {
-    return <Router>
-            <MainNavitation/>
+    return (
+        <Router>
+            <MainNavitation />
             <main>
-            <Switch>
-                    <Route exact path="/places/add-new">
-                        <NewPlace />
-                    </Route>
-                    <Route exact path="/">
+                <Switch>
+                    <Route path="/" exact>
                         <Users />
                     </Route>
-                <Redirect to="/" />
-            </Switch>
+                    <Route path="/places/new" exact>
+                        <NewPlace />
+                    </Route>
+                    <Redirect to="/" />
+                </Switch>
             </main>
-           </Router>
+        </Router>
+    );
 };
 
 export default App;
