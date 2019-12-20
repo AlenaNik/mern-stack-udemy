@@ -1,6 +1,7 @@
 import React from 'react';
-import './Place.css';
+import './PlaceItem.css';
 import Card from '../UI/Card';
+import Button from '../UI/Button';
 
 const PlaceItem = props => {
     return <li className="place-item">
@@ -14,9 +15,9 @@ const PlaceItem = props => {
             <p>{props.description}</p>
         </div>
         <div className="place-item">
-        <button>View on map</button>
-            <button>Edit a place</button>
-            <button>Delete a place</button>
+        <Button inverse>View on map</Button>
+            <Button to={`/places/${props.id}`}>Edit a place</Button>
+            <Button danger>Delete a place</Button>
         </div>
         </Card>
     </li>

@@ -3,9 +3,9 @@ import UserList from '../components/UsersList.component';
 
 const Users = () => {
     const USERS = [{
-        id: 'user1',
-        name: 'User Name',
-        image: 'https://images.unsplash.com/photo-1548681528-6a5c45b66b42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        id: 'u1',
+        name: 'Jessica',
+        image: 'https://images.unsplash.com/photo-1566807810030-3eaa60f3e670?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
         places: 11
     }];
 
