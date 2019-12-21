@@ -4,6 +4,7 @@ import Card from '../UI/Card';
 import Button from '../UI/Button';
 import { useState } from 'react';
 import Modal from '../UI/Modal';
+import Map from '../UI/Map';
 
 const PlaceItem = props => {
     const [showMap, setShowMap] = useState(false);
@@ -21,9 +22,7 @@ const PlaceItem = props => {
                    footer={<Button onClick={closeMapHandler}>Close</Button>}
             >
             <div className="map-container">
-                <h2>
-                    The Map
-                </h2>
+                <Map center={props.coordinates} zoom={16}/>
             </div>
             </Modal>
                        <li className="place-item">
