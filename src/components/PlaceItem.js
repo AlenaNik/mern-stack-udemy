@@ -2,9 +2,25 @@ import React from 'react';
 import './PlaceItem.css';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
+import { useState } from 'react';
+import Modal from '../UI/Modal';
 
 const PlaceItem = props => {
-    return <li className="place-item">
+    const [showMap, setShowMap] = useState(false);
+    const openMapHandler = () => setShowMap(true);
+    const closeMapHandler = () => setShowMap(false);
+
+
+    return (
+        <React.Fragment>
+            <Modal show={showMap}
+                   onCancel={closeMapHandler}
+                   header={props.address}
+                    contentClass="place-item__modal-content"
+                    footerClass="place-item__modal-actions"
+                   footer={<Button onClick={closeMapHandler}>Close<Button/>}
+            />
+        <li className="place-item">
         <Card className="place-item__content">
         <div className="place-item__image">
             <img src={props.image} alt={props.title}/>
@@ -21,5 +37,6 @@ const PlaceItem = props => {
         </div>
         </Card>
     </li>
-};
+        </React.Fragment>
+    )};
 export default PlaceItem;
