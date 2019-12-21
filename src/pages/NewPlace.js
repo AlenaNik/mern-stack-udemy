@@ -46,9 +46,19 @@ const NewPlace = () => {
     });
 
     const inputHandler = useCallback((id, value, isValid) => {
-        dispatch({type: 'INPUT_CHANGE', value: value, isValid: isValid, inputId: id})
+        dispatch({type: 'INPUT_CHANGE',
+            value: value,
+            isValid: isValid,
+            inputId: id})
     }, []);
-    return <form className="place-form">
+    const placeSubmitHandler = e => {
+        e.preventDefault();
+        console.log(formState.inputs);
+    };
+
+    return <form className="place-form"
+    onSubmit={placeSubmitHandler}
+    >
             <Input
                 id="title"
                 element="input"
